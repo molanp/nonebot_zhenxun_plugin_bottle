@@ -44,7 +44,7 @@ __plugin_settings__ = {
 }
 
 __plugin_cd_limit__ = {
-    "cd": 30,
+    "cd": 5,
     "check_type": "all",
     "limit_type": "user",
     "rst": "正在冷却喵~",

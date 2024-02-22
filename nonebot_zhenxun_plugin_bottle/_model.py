@@ -1,10 +1,8 @@
 import os
 import sqlite3
-import random
 import datetime
 import traceback
 import sys
-from services.log import logger
 from .curse import words
 
 
