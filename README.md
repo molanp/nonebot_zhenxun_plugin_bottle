@@ -1,6 +1,6 @@
 # 绪山真寻的漂流瓶插件
 
-因看到隔壁枇枇机器人自带漂流瓶插件，而真寻没有，怒而敲键盘三小时，写出了本漂流瓶插件
+因看到隔壁[椛椛](https://github.com/FloatTech/ZeroBot-Plugin)机器人自带[漂流瓶](https://github.com/FloatTech/ZeroBot-Plugin/blob/master/plugin/driftbottle/main.go)插件，而真寻没有，怒而敲键盘三小时，写出了本漂流瓶插件
 
 ## 指令
 ```
