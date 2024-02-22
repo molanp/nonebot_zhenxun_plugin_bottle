@@ -16,8 +16,8 @@ __plugin_usage__ = """
 usage：
     群与群互通的漂流瓶插件
 指令：
-    扔漂流瓶(throw) [文本]
-    捡漂流瓶(pick/寄漂流瓶/捡漂流瓶)
+    扔漂流瓶(throw/丢漂流瓶/寄漂流瓶) [文本]
+    捡漂流瓶(pick)
 """.strip()
 __plugin_superuser_usage__ = """
 SUPERUSER指令：
