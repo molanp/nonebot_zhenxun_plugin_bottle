@@ -16,8 +16,8 @@ __plugin_usage__ = """
 usage：
     群与群互通的漂流瓶插件
 指令：
-    扔漂流瓶(pick) [文本]
-    捡漂流瓶(throw/寄漂流瓶/捡漂流瓶)
+    扔漂流瓶(throw) [文本]
+    捡漂流瓶(pick/寄漂流瓶/捡漂流瓶)
 """.strip()
 __plugin_superuser_usage__ = """
 SUPERUSER指令：
@@ -47,7 +47,7 @@ __plugin_cd_limit__ = {
     "cd": 30,
     "check_type": "all",
     "limit_type": "user",
-    "rst": None,
+    "rst": "正在冷却喵~",
     "status": True
 }
 
