@@ -34,7 +34,7 @@ __plugin_cmd__ = ["pick", "throw", "查看漂流瓶", "扔漂流瓶",
                   "捡漂流瓶", "寄漂流瓶", "丢漂流瓶", "漂流瓶列表", "删除漂流瓶", "清空漂流瓶",
                   "添加漂流瓶黑名单", "移出漂流瓶黑名单", "漂流瓶黑名单",
                   "清空漂流瓶黑名单", "banbottle", "漂流瓶封禁"]
-__plugin_version__ = 0.1
+__plugin_version__ = 0.2
 __plugin_author__ = "molanp"
 __plugin_settings__ = {
     "level": 5,
