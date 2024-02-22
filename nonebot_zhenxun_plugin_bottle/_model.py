@@ -1,6 +1,7 @@
 import os
 import sqlite3
 import random
+import datetime
 import traceback
 import sys
 from services.log import logger
@@ -47,8 +48,8 @@ class Sea:
                 return "发现违禁词，请更换投递内容"
             else:
                 try:
-                    query = "INSERT INTO bottles (name, user, _group, msg, time) VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP);"
-                    values = (name, self.usr, self.grp, msg)
+                    query = "INSERT INTO bottles (name, user, _group, msg, time) VALUES (?, ?, ?, ?, ?);"
+                    values = (name, self.usr, self.grp, msg, datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
                     self.db.execute(query, values)
                     self.db.commit()
                     return "已经帮你丢出去了哦~"
