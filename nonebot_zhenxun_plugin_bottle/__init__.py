@@ -16,8 +16,8 @@ __plugin_usage__ = """
 usage：
     群与群互通的漂流瓶插件
 指令：
-    扔漂流瓶(throw/丢漂流瓶/寄漂流瓶) [文本]
-    捡漂流瓶(pick)
+    扔漂流瓶(throw) [文本/图片]
+    捡漂流瓶(pick/寄漂流瓶/捡漂流瓶)
 """.strip()
 __plugin_superuser_usage__ = """
 SUPERUSER指令：
@@ -53,7 +53,8 @@ __plugin_cd_limit__ = {
 
 throw = on_command("扔漂流瓶", aliases={
                    "寄漂流瓶", "丢漂流瓶", "throw"}, permission=GROUP, priority=5, block=True)
-pick = on_command("捡漂流瓶", aliases={"pick"}, permission=GROUP,priority=5, block=True)
+pick = on_command("捡漂流瓶", aliases={"pick"},
+                  permission=GROUP, priority=5, block=True)
 check_bottle = on_command(
     "查看漂流瓶", permission=SUPERUSER, priority=5, block=True)
 remove = on_command("删除漂流瓶", permission=SUPERUSER, priority=5, block=True)
@@ -76,7 +77,7 @@ remove_ban = on_command(
 
 @throw.handle()
 async def _(event: GroupMessageEvent, args: Message = CommandArg()):
-    msg = args.extract_plain_text()
+    msg = str(args)
     name = await get_name(event.user_id, event.group_id)
     await throw.finish(Message(Sea(event).throw(msg, name)), at_sender=True)
 
