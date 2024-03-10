@@ -9,6 +9,7 @@ from nonebot.adapters.onebot.v11.permission import GROUP
 from nonebot.params import CommandArg
 from models.group_member_info import GroupInfoUser
 from ._model import Sea
+import html as ht
 
 
 __zx_plugin_name__ = "漂流瓶"
@@ -77,7 +78,7 @@ remove_ban = on_command(
 
 @throw.handle()
 async def _(event: GroupMessageEvent, args: Message = CommandArg()):
-    msg = str(args)
+    msg = ht.unescape(str(args))
     name = await get_name(event.user_id, event.group_id)
     await throw.finish(Message(Sea(event).throw(msg, name)), at_sender=True)
 
