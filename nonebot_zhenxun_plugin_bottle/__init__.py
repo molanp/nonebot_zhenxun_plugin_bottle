@@ -3,7 +3,7 @@ from nonebot.adapters.onebot.v11 import (
     Bot,
     GroupMessageEvent,
     Message)
-from configs.config import NICKNAME
+from configs.config import BotConfig
 from nonebot.permission import SUPERUSER
 from nonebot.adapters.onebot.v11.permission import GROUP
 from nonebot.params import CommandArg
@@ -101,11 +101,11 @@ async def _(bot: Bot, event: GroupMessageEvent):
         except BaseException:
             await pick.finish(Message(bottle), at_sender=True)
         msg_list = []
-        msg = f"{NICKNAME}试着帮你捞出来了这个~\nID: {id_str}\n投递人: {bottle.name}({qq_str})\n群号: {grp_str}\n时间: {bottle.time}\n内容: \n{bottle.msg}"
+        msg = f"{BotConfig.self_nickname}试着帮你捞出来了这个~\nID: {id_str}\n投递人: {bottle.name}({qq_str})\n群号: {grp_str}\n时间: {bottle.time}\n内容: \n{bottle.msg}"
         msg_list.append({
             "type": "node",
             "data": {
-                "name": f"{NICKNAME}",
+                "name": f"{BotConfig.self_nickname}",
                 "uin": f"{bot.self_id}",
                 "content": msg,
             },
@@ -131,11 +131,11 @@ async def _(bot: Bot, event: GroupMessageEvent, args: Message = CommandArg()):
         except BaseException:
             await pick.finish(Message(bottle), at_sender=True)
         msg_list = []
-        msg = f"{NICKNAME}试着帮你捞出来了这个~\nID: {id_str}\n投递人: {bottle.name}({qq_str})\n群号: {grp_str}\n时间: {bottle.time}\n内容: \n{bottle.msg}"
+        msg = f"{BotConfig.self_nickname}试着帮你捞出来了这个~\nID: {id_str}\n投递人: {bottle.name}({qq_str})\n群号: {grp_str}\n时间: {bottle.time}\n内容: \n{bottle.msg}"
         msg_list.append({
             "type": "node",
             "data": {
-                "name": f"{NICKNAME}",
+                "name": f"{BotConfig.self_nickname}",
                 "uin": f"{bot.self_id}",
                 "content": msg,
             },
