@@ -4,6 +4,8 @@ from nonebot.adapters.onebot.v11 import (
     GroupMessageEvent,
     Message)
 from configs.config import BotConfig
+from nonebot.plugin import PluginMetadata
+from zhenxun.configs.utils import PluginExtraData, PluginCdBlock
 from nonebot.permission import SUPERUSER
 from nonebot.adapters.onebot.v11.permission import GROUP
 from nonebot.params import CommandArg
@@ -11,16 +13,15 @@ from models.group_member_info import GroupInfoUser
 from ._model import Sea
 import html as ht
 
-
-__zx_plugin_name__ = "漂流瓶"
-__plugin_usage__ = """
+__plugin_meta__ = PluginMetadata(
+    name="漂流瓶",
+    description="群与群互通的漂流瓶插件",
+    usage=f"""
 usage：
     群与群互通的漂流瓶插件
 指令：
     扔漂流瓶(throw) [文本/图片]
     捡漂流瓶(pick/寄漂流瓶/捡漂流瓶)
-""".strip()
-__plugin_superuser_usage__ = """
 SUPERUSER指令：
     清空漂流瓶
     删除漂流瓶 [漂流瓶编号]
@@ -28,29 +29,14 @@ SUPERUSER指令：
     添加漂流瓶黑名单 [user / group] [QQ号 / 群号]
     移出漂流瓶黑名单 [user / group] [QQ号 / 群号]
     查看漂流瓶黑名单
-""".strip()
-__plugin_des__ = '漂流瓶插件'
-__plugin_type__ = ("群内小游戏",)
-__plugin_cmd__ = ["pick", "throw", "查看漂流瓶", "扔漂流瓶",
-                 "捡漂流瓶", "寄漂流瓶", "丢漂流瓶", "漂流瓶列表", "删除漂流瓶", "清空漂流瓶",
-                 "添加漂流瓶黑名单", "移出漂流瓶黑名单", "漂流瓶黑名单",
-                 "清空漂流瓶黑名单", "banbottle", "漂流瓶封禁"]
-__plugin_version__ = 0.3
-__plugin_author__ = "molanp"
-__plugin_settings__ = {
-    "level": 5,
-    "default_status": True,
-    "limit_superuser": False,
-    "cmd": __plugin_cmd__,
-}
-
-__plugin_cd_limit__ = {
-    "cd": 5,
-    "check_type": "all",
-    "limit_type": "user",
-    "rst": "正在冷却喵~",
-    "status": True
-}
+    """.strip(),
+    extra=PluginExtraData(
+        author="molanp",
+        version="0.4",
+        limits=[PluginCdBlock(result="正在冷却喵~")],
+        menu_type="群内小游戏",
+    ).dict(),
+)
 
 throw = on_command("扔漂流瓶", aliases={
                    "寄漂流瓶", "丢漂流瓶", "throw"}, permission=GROUP, priority=5, block=True)
